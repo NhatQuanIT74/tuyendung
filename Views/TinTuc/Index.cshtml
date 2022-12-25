@@ -1,0 +1,104 @@
+﻿@using TuyenDungCNTT.Models.Dao
+@{
+    BaiVietDao dao = new BaiVietDao();
+    var lstBaiViet = dao.GetListItemHot(5);
+
+    ViewBag.Title = "Tin tức";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+@section css_Main {
+    <link rel="stylesheet" href="~/Assets/Client/css/search.css">
+}
+
+@section scripts_Main {
+    <script src="~/Assets/Client/js/Employer/Tintuc.js"></script>
+    <script>
+        load("/TinTuc/GetPaging", 1);
+
+        $("body").on("click", ".result__paging--list li a", function (event) {
+            event.preventDefault();
+            var page = $(this).attr('data-page');
+            load("/TinTuc/GetPaging", page);
+        });
+    </script>
+        
+}
+
+
+<style>
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 10;
+        animation: fadeIn .5s linear;
+        background-color: var(--bg-color);
+    }
+</style>
+
+<div class="main_result"  style="padding-top: 10px;">
+    <div class="main__result--wrapper grid wide">
+        <div class="main__result--total">
+            <h4 class="result__total--content">
+                Danh sách bài viết
+            </h4>
+            <div class="main__result--content row">
+                <div class="main__result--description col l-8">
+                    <div class="grid row result__list--search">
+
+                    </div>
+                    <div class="main__result--paging">
+                        <ul class="result__paging--list">
+                        </ul>
+                    </div>
+                </div>
+                <div class="main__result--spotlight col l-4">
+                    <div class="interested">
+                        <h3 class="result__spotlight--title">Bài viết mới nhất</h3>
+                        <div class="result__spotlight--list row">
+                            <div class="result__spotlight--item l-12">
+                                @foreach (var item in lstBaiViet)
+                                {
+                                    <div class="result__item col l-12 m-6 c-12">
+                                        <div class="result__item--wrapper">
+                                            <div class="result__item--img">
+                                                <img class="full_width" src="@item.AnhChinh" alt="Ảnh bài viết">
+                                            </div>
+                                            <div class="result__item--name">
+                                                <h2 class="result__name--title">
+                                                    <a href="/bai-viet/@item.TieuDe-@item.MaBaiViet" class="result__name--link text-line-1">
+                                                        @item.TenBaiViet
+                                                    </a>
+                                                </h2>
+                                                <div class="result__name--employer mb-5">
+                                                    <a href="/cong-ty/@item.TenTacGia-@item.MaTacGia" class="result__employer--link text-line-1">
+                                                        <span class="result__icon"><i class="far fa-building"></i></span>
+                                                        <span class="">@item.TenTacGia</span>
+                                                    </a>
+                                                </div>
+                                                <p class="result__salary mb-5">
+                                                    <span class="result__icon"><i class="fas fa-eye"></i></span>
+                                                    <span>Lượt xem: @item.LuotXem</span>
+                                                </p>
+                                                <div class="result__date mb-5">
+                                                    <p class="result__date--end mb-0">
+                                                        <span class="result__icon"><i class="fa-regular fa-clock"></i></span>
+                                                        <span>@item.ThoiGian</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        
+

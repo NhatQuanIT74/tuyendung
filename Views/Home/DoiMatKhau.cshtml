@@ -9,12 +9,24 @@
     <link rel="stylesheet" href="~/Assets/Admin/css/bootstrap.min.css" />
 }
 
+<style>
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 10;
+        animation: fadeIn .5s linear;
+        background-color: var(--bg-color);
+    }
+</style>
+
 <div class="main__content">
     <div class="main__content--wrapper grid wide">
         <div class="row">
             <div class="col-xl-12">
                 <div class="card">
-                    <div class="card-body">
+                    <div class="card-body" style="padding-top:60px;">
                         <div class="card-header py-2">
                             <h4 class="header-title mb-0">Thay đổi mật khẩu</h4>
                         </div>

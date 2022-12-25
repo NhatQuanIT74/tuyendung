@@ -131,6 +131,7 @@ namespace TuyenDungCNTT.Models.Dao
                     AnhChinh = x.sAnhChinh,
                     TenBaiViet = x.sTenBaiViet,
                     TenTacGia = GetAuthorByIdBaiViet((int)x.PK_iMaBaiViet),
+                    MaTacGia = x.FK_iMaTaiKhoan.ToString(),
                     ThoiGian = ((DateTime)(x.dThoiGian)).ToString("dd/MM/yyyy HH:mm:ss"),
                     LuotXem = x.iLuotXem
                 }).ToList();
@@ -266,6 +267,54 @@ namespace TuyenDungCNTT.Models.Dao
             {
                 return 0;
             }
+        }
+
+        public string GetAuthorByIdTinTuc(int id)
+        {
+            try
+            {
+                var item = dbContext.tbl_BaiViet.Find(id);
+                if (item == null) return null;
+                var authorId = item.FK_iMaTaiKhoan;
+                var user = dbContext.tbl_TaiKhoan.Find(authorId);
+                if (user.FK_iMaQuyen == CommonConstants.NHATUYENDUNG)
+                    return (dbContext.tbl_NhaTuyenDung.Find(authorId)).sTenNTD;
+                else if (user.FK_iMaQuyen == CommonConstants.QUANTRIVIEN)
+                    return "Admin";
+                return null;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public ResultPaging<BaiVietVm> GetList(GetListPaging paging)
+        {
+            var model = dbContext.tbl_BaiViet.Where(x => x.bTrangThai == true);
+            var listItem = model.ToList().Select(x => new BaiVietVm()
+            {
+                MaBaiViet = x.PK_iMaBaiViet,
+                TenBaiViet = x.sTenBaiViet,
+                AnhChinh = x.sAnhChinh,
+                NoiDung = x.sNoiDung,
+                MaTacGia = x.FK_iMaTaiKhoan.ToString(),
+                TenTacGia = GetAuthorByIdTinTuc(x.PK_iMaBaiViet),
+                ThoiGian = x.dThoiGian.ToString(),
+                LuotXem = x.iLuotXem,
+                TrangThai = x.bTrangThai == true ? "1" : "0"
+            }).ToList();
+
+            int total = model.Count();
+
+            var items = listItem.OrderBy(x => x.MaBaiViet)
+                .Skip((paging.PageIndex - 1) * paging.PageSize).Take(paging.PageSize)
+                .ToList();
+            return new ResultPaging<BaiVietVm>()
+            {
+                Items = items,
+                TotalRecord = total
+            };
         }
     }
 }

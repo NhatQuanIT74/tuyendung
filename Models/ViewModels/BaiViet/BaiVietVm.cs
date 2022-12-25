@@ -16,8 +16,9 @@ namespace TuyenDungCNTT.Models.ViewModels.BaiViet
         public string AnhChinh { get; set; }
 
         public string NoiDung { get; set; }
-
+        public string MaTacGia { get; set; }
         public string TenTacGia { get; set; }
+        public string TieuDeNTD => StringHelper.ToUnsignString(TenTacGia).ToLower();
 
         public string ThoiGian { get; set; }
 

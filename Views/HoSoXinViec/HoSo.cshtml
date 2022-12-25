@@ -10,7 +10,19 @@
     <link rel="stylesheet" href="~/Assets/Client/css/HoSo/style.css">
 }
 
-<div class="main__content">
+<style>
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 10;
+        animation: fadeIn .5s linear;
+        background-color: var(--bg-color);
+    }
+</style>
+
+<div class="main__content" style="padding-top:50px;">
     <div class="grid wide">
         <div class="container-fluid overcover">
             <div class="container profile-box">

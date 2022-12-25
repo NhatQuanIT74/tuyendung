@@ -157,6 +157,7 @@
     <Compile Include="Areas\NhaTuyenDung\Controllers\LoginController.cs" />
     <Compile Include="Controllers\HoSoXinViecController.cs" />
     <Compile Include="Controllers\RecruitmentController.cs" />
+    <Compile Include="Controllers\TinTucController.cs" />
     <Compile Include="Controllers\UngTuyenController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -166,6 +167,7 @@
     <Compile Include="Models\Dao\HoSoXinViecDao.cs" />
     <Compile Include="Models\Dao\NhaTuyenDungDao.cs" />
     <Compile Include="Models\Dao\TaiKhoanDao.cs" />
+    <Compile Include="Models\Dao\TinTucDao.cs" />
     <Compile Include="Models\Dao\TinTuyenDungDao.cs" />
     <Compile Include="Models\Dao\UngTuyenDao.cs" />
     <Compile Include="Models\Dao\UngVienDao.cs" />
@@ -287,6 +289,7 @@
     <Content Include="Assets\Client\js\Employer\baiVietChoDuyet.js" />
     <Content Include="Assets\Client\js\Employer\infonhatuyendung.js" />
     <Content Include="Assets\Client\js\Employer\timHoSo.js" />
+    <Content Include="Assets\Client\js\Employer\Tintuc.js" />
     <Content Include="Assets\Client\js\Employer\tinTuyenDung.js" />
     <Content Include="Assets\Client\js\Employer\tinTuyenDungChoDuyet.js" />
     <Content Include="Assets\Client\js\Employer\tinTuyenDungHetHan.js" />
@@ -595,6 +598,7 @@
     <Content Include="Views\UngTuyen\Index.cshtml" />
     <Content Include="Views\Home\DoiMatKhau.cshtml" />
     <Content Include="Views\Recruitment\PhuHop.cshtml" />
+    <Content Include="Views\TinTuc\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

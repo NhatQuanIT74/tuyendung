@@ -14,8 +14,22 @@
     <script src="~/Assets/Client/js/nhatuyendung.js"></script>
 }
 
+<style>
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 10;
+        animation: fadeIn .5s linear;
+        background-color: var(--bg-color);
+    }
+</style>
+
+<div class="main__fixed bg-img"></div>
+
 <div class="main__wrapper grid wide">
-    <div class="main__image">
+    <div class="main__image" style="margin-top: 60px;">
         @if (Model.AnhBia != null)
         {
             <div class="main__image--conver bg-img" style="background-image: url(@Model.AnhBia);"></div>
@@ -48,7 +62,7 @@
                     <h2>Việc làm cùng công ty</h2>
 
                     <div class="introduce__employer--list">
-                       
+
                     </div>
 
                     <div class="main__result--paging">

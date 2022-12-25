@@ -32,14 +32,14 @@
     <div class="app">
         <header class="header" id="header">
             <div class="header__logo">
-                <a href="/" class="header__logo--link">
+                <a href="/" class="header__logo--link">                       
                     <img src="~/Assets/Client/img/techjobs-logo.png" />
                 </a>
             </div>
-            <nav class="header__navbar">
+            <nav class="header__navbar">                         
                 <ul class="header__navbar--list">
                     <li class="header__navbar--item active">
-                        <a href="/" target="_blank" rel="noopener">Trang chủ</a>
+                        <a href="/" rel="noopener">Trang chủ</a>
                     </li>
                     <li class="header__navbar--item">
                         <a href="javascript:void(0)">
@@ -55,7 +55,7 @@
                         <a href="@Url.Action("Search","Home")">Tìm việc làm</a>
                     </li>
                     <li class="header__navbar--item">
-                        <a href="#">Tin tức</a>
+                        <a href="@Url.Action("Index", "TinTuc")">Tin tức</a>
                     </li>
                 </ul>
 

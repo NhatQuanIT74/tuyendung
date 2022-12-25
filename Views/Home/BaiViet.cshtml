@@ -8,10 +8,20 @@
 @section css_Main {
     <link rel="stylesheet" href="~/Assets/Client/css/baiViet.css">
 }
-
+<style>
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 10;
+        animation: fadeIn .5s linear;
+        background-color: var(--bg-color);
+    }
+</style>
 <div class="main__fixed bg-img"></div>
 
-<div class="main__blogs">
+<div class="main__blogs" style="padding-top: 50px;">
     <div class="grid wide">
         <div class="main__blogs--content row">
             <div class="col l-12">
@@ -20,7 +30,7 @@
                 </h1>
                 <div class="blogs__header">
                     <div>
-                        Tác giá: <strong class="mr-2">@Model.TenTacGia</strong>
+                        Tác giả: <strong class="mr-2">@Model.TenTacGia</strong>
                     </div>
                     <div>
                         Ngày đăng: <i>@Model.ThoiGian</i>

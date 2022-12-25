@@ -10,16 +10,26 @@
     <link rel="stylesheet" href="~/Assets/Client/css/hoso.css">
 }
 
-
-<div class="main__fixed bg-img"></div>
+<style>
+    .header{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 10;
+        animation: fadeIn .5s linear;
+        background-color: var(--bg-color);
+    }
+</style>
+<div class="main__fixed bg-img" ></div>
 
 <div class="main__content">
     <div class="main__content--wrapper grid wide">
         <div class="row">
-            <div class="col-xl-12">
-                <div class="card">
+            <div class="col-xl-12" style="padding-top: 60px;">
+                <div class="card" >
                     <div class="card-body">
-                        <div class="card-header py-2">
+                        <div class="card-header py-2" >
                             <h4 class="header-title mb-0">Danh sách hồ sơ xin việc của bạn</h4>
                         </div>
                         <div class="py-2">
